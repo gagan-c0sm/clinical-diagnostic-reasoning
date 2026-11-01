@@ -4,6 +4,19 @@ The aim is practical diagnostic performance on an RTX 4060 Laptop (8 GB), with
 all model inference on-device. Extensive research ablations are out of scope.
 This is a development prototype; output correctness has not been established.
 
+## Project status: complete
+
+**Completed November 1, 2026.** The project is closed at its current prototype
+scope: local diagnostic inference, training utilities, development evaluation,
+and the interactive evidence/reasoning demo. Source code, tests, usage guidance,
+and experiment reports are available in this repository.
+
+Completion refers to the prototype delivery, not clinical validation or a final
+test-set accuracy claim. The limitations and deferred work recorded below and in
+the experiment reports remain applicable; they are not scheduled follow-up work.
+Clinical datasets, model weights, and local runtime artifacts are not included
+in the repository.
+
 ## Installed runtime
 
 The portable CUDA llama.cpp build is in `tools/llama.cpp`. Official
@@ -96,7 +109,7 @@ It is not the paper's semantic evaluator. Equivalent observation boundaries can
 score poorly on exact-span metrics. Small development runs are debugging
 evidence, not dependable estimates of final accuracy.
 
-## Status and next decisions
+## Development results and limitations
 
 D3 completed a 200-update pilot. Its adapter regressed on the matched development
 check (7/12 diagnoses versus base 9/12), so further generic training was deferred.
@@ -127,10 +140,11 @@ D5 runs the local multi-stage pipeline. [D6 evaluation](EVALUATION.md) now
 adds offline biomedical semantic matching for evidence and rationale steps,
 one-to-one matching, milestone scoring, and auditable case-level results.
 The threshold remains uncalibrated; the optional LLM judge is deferred. D7 now has manual JSON input and a readable HTML report; the original
-single-pass model and interactive browser form remain unimplemented. D8 has a
+single-pass model remains unimplemented. The interactive browser demo is
+available in `src/demo` and launched with `scripts/start_demo.ps1`. D8 has a
 practical development results report. Additional research comparison arms are
-outside the agreed scope. D9's consolidated dataset-use documentation remains
-pending; source data and generated case reports must stay within the applicable
+outside the agreed scope. D9's consolidated dataset-use documentation is
+deferred beyond this completed prototype; source data and generated case reports must stay within the applicable
 MIMIC data-use conditions.
 
 The optional shortlist router underperformed the default single router on the
